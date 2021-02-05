@@ -1,3 +1,7 @@
 exports.homePage = (req, res) => {
-	res.send('Hey! It works!');
+	res.render('index');
+};
+
+exports.add = (req, res) => {
+	res.render('editStore', { title: 'Add Store' });
 };
