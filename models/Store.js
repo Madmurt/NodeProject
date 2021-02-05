@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const slugs = require('slugs');
+const slug = require('slugs');
 
 const storeSchema = new mongoose.Schema({
 	name: {
