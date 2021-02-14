@@ -27,10 +27,12 @@ router.get('/store/:slug', catchErrors(storeController.getStoreBySlug));
 router.get('/tags', catchErrors(storeController.getStoresByTag));
 router.get('/tags/:tag', catchErrors(storeController.getStoresByTag));
 
+router.get('/map', storeController.map);
+
 router.get('/login', userController.loginForm);
 router.post('/login', authController.login);
-router.get('/register', userController.registerForm);
 
+router.get('/register', userController.registerForm);
 router.post(
 	'/register',
 	userController.validateRegister,
@@ -56,5 +58,6 @@ router.post(
 );
 
 router.get('/api/search', catchErrors(storeController.searchStores));
+router.get('/api/stores/near', catchErrors(storeController.mapStores));
 
 module.exports = router;
