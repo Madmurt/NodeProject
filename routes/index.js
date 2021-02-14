@@ -1,8 +1,11 @@
 const express = require('express');
+const reviewController = require('../controllers/reviewController');
+
 const router = express.Router();
 const storeController = require('../controllers/storeController');
 const userController = require('../controllers/userController');
 const authController = require('../controllers/authController');
+
 const { catchErrors } = require('../handlers/errorHandlers');
 
 // Do work here
@@ -61,6 +64,15 @@ router.post(
 	authController.confirmedPasswords,
 	catchErrors(authController.update)
 );
+
+router.post(
+	'/reviews/:id',
+	authController.isLoggedIn,
+	catchErrors(reviewController.addReview)
+);
+
+router.get('/top', catchErrors(storeController.getTopStores));
+
 //API routes
 router.get('/api/search', catchErrors(storeController.searchStores));
 router.get('/api/stores/near', catchErrors(storeController.mapStores));
