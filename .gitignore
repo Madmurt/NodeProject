@@ -4,3 +4,4 @@ variables.env.now
 .DS_store
 *.log
 haters/
+.vercel
